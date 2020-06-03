@@ -1,7 +1,13 @@
 <h1> Ingresa su codigo secreto </h1>
+
+
 <form method='post' action='/'>
     Codigo: <input type='text' name='nuevoCodigo'>
     <p><%=@respuesta%></p>
     <input type="submit" value='validar'>
+</form>
+
+<form method='get' action='/juego'>
+    <input type="submit" value='Jugar!'>
 </form>
 
