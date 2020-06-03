@@ -19,7 +19,9 @@ class Juego
     def codigoValido(nuevoCodigo)
 
         if(soloNumeros(nuevoCodigo)) then
-            return true    
+           if(caracteresRepetidos(nuevoCodigo)) then
+                return true
+           end
         end
         return false
     end
