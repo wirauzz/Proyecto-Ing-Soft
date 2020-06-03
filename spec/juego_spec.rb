@@ -33,8 +33,14 @@ RSpec.describe Juego do
     end
 
     it 'Deberia dar true si el codigo no tiene numeros repetidos' do
-        codigo = "125364d"
+        codigo = "125364"
         juego = Juego.new()
         expect(juego.caracteresRepetidos(codigo)).to eq true    
-    end    
+    end
+    
+    it 'Deberia dar false si el codigo tiene numeros repetidos' do
+        codigo = "1253664"
+        juego = Juego.new()
+        expect(juego.caracteresRepetidos(codigo)).to eq false    
+    end
 end

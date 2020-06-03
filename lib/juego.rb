@@ -29,7 +29,11 @@ class Juego
     end
 
     def caracteresRepetidos(nuevoCodigo)
-        return true
+        if nuevoCodigo =~ /(.)\1/ then
+            return false
+          else
+            return true
+          end
     end
     
 
