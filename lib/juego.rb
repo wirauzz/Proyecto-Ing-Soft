@@ -27,6 +27,10 @@ class Juego
     def soloNumeros(nuevoCodigo)
         return nuevoCodigo.scan(/\D/).empty?
     end
+
+    def caracteresRepetidos(nuevoCodigo)
+        return true
+    end
     
 
 
