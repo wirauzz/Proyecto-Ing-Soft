@@ -12,6 +12,10 @@ class Juego
         @@codigo = nuevoCodigo
     end
 
+    def codigoValido()
+    end
+    
+
 
 
 
