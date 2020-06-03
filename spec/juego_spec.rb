@@ -14,6 +14,12 @@ RSpec.describe Juego do
         expect(juego.getCodigo()).to eq codigo    
     end
 
+    it 'Deberia no deberia ser posible setear un nuevo codigo secreto' do
+        codigo = "125364fdsasd"
+        juego = Juego.new()
+        expect(juego.setCodigo(codigo)).to eq 'codigo no valido'    
+    end
+
     it 'Deberia dar verdadero si el codigo contiene solo numeros' do
         codigo = "125364"
         juego = Juego.new()
