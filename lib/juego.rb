@@ -42,25 +42,35 @@ class Juego
         @vacas=0;
         @toros=0;
         if(@@codigo.length == intento.length) then
-            for pos in 0...intento.length
-                if(intento[pos] == @@codigo[pos]) then
-                    @toros +=1
-                end
-            end
-
-            for pos in 0...intento.length do
-                for index in 0...intento.length do
-                    if(intento[pos] == @@codigo[index] && pos!=index)
-                        @vacas +=1
-                    end
-                end
-            end
+            @toros = calcularCantidadDeToros(intento, @toros)
+            @vacas = calcularCantidadVacas(intento, @vacas)
             return "#{@vacas} vaca(s) y #{@toros} toro(s)"
         else
             return "las cadenas deben ser del mismo tamaño"
         end
-
     end
+
+    def calcularCantidadVacas(intento, vacas)
+        for pos in 0...intento.length do
+            for index in 0...intento.length do
+                if(intento[pos] == @@codigo[index] && pos!=index)
+                    vacas +=1
+                end
+            end
+        end
+        return vacas
+    end
+
+    def calcularCantidadDeToros(intento, toros)
+        for pos in 0...intento.length
+            if(intento[pos] == @@codigo[pos]) then
+                toros +=1
+            end
+        end
+        return toros
+    end
+
+
 end
 
 
