@@ -52,7 +52,6 @@ class Juego
         else
             return "la cadena debe solo contener numeros"
         end
-        
     end
 
     def calcularCantidadVacas(intento, vacas)
