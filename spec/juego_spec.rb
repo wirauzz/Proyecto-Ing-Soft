@@ -20,5 +20,9 @@ RSpec.describe Juego do
         expect(juego.soloNumeros(codigo)).to eq true    
     end
 
-    
+    it 'Deberia dar false si el codigo no contiene solo numeros' do
+        codigo = "125364d"
+        juego = Juego.new()
+        expect(juego.soloNumeros(codigo)).to eq false    
+    end
 end
