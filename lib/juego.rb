@@ -39,6 +39,12 @@ class Juego
     end
 
     def intentarAdivinar(intento)
+        if(@@codigo.length == intento.length) then
+            
+        else
+            return "las cadenas deben ser del mismo tamaño"
+        end
+
     end
 end
 
