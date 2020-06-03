@@ -16,7 +16,12 @@ end
 
 
 get '/juego' do
-    erb:pantallaDeIntentos
+    if(@@juego.getCodigo()!='') then
+        erb:pantallaDeIntentos
+    else
+        @respuesta = "¡Aun no definiste el codigo secreto!"
+        erb:pantallaPrincipal
+    end
 end
 
 
