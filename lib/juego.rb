@@ -39,15 +39,20 @@ class Juego
     end
 
     def intentarAdivinar(intento)
-        @vacas=0;
-        @toros=0;
-        if(@@codigo.length == intento.length) then
-            @toros = calcularCantidadDeToros(intento, @toros)
-            @vacas = calcularCantidadVacas(intento, @vacas)
-            return "#{@vacas} vaca(s) y #{@toros} toro(s)"
+        if(soloNumeros(intento)) then
+            if(@@codigo.length == intento.length) then
+                @vacas=0
+                @toros=0
+                @toros = calcularCantidadDeToros(intento, @toros)
+                @vacas = calcularCantidadVacas(intento, @vacas)
+                return "#{@vacas} vaca(s) y #{@toros} toro(s)"
+            else
+                return "las cadenas deben ser del mismo tamaño"
+            end
         else
-            return "las cadenas deben ser del mismo tamaño"
+            return "la cadena debe solo contener numeros"
         end
+        
     end
 
     def calcularCantidadVacas(intento, vacas)

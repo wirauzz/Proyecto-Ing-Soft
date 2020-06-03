@@ -66,6 +66,14 @@ RSpec.describe Juego do
         expect(juego.intentarAdivinar(intento)).to eq 'las cadenas deben ser del mismo tamaño'    
     end
 
+    it 'Debria devolverme que el intento no es valido' do
+        codigo = "125364"
+        intento = "453sd6"
+        juego = Juego.new()
+        juego.setCodigo(codigo)
+        expect(juego.intentarAdivinar(intento)).to eq 'la cadena debe solo contener numeros'    
+    end
+
     it 'Debria devolverme la cantidad de 4 vacas y 1 toro' do
         codigo = "125364"
         intento ="196435"
