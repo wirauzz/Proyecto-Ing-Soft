@@ -11,13 +11,13 @@ class Juego
     def setCodigo(nuevoCodigo)
         if(codigoValido(nuevoCodigo)) then
             @@codigo = nuevoCodigo
+            return 'codigo aceptado'
         else
             return 'codigo no valido'
         end
     end
 
     def codigoValido(nuevoCodigo)
-
         if(soloNumeros(nuevoCodigo)) then
            if(caracteresRepetidos(nuevoCodigo)) then
                 return true
