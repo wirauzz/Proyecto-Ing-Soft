@@ -20,13 +20,13 @@ RSpec.describe Juego do
         expect(juego.setCodigo(codigo)).to eq 'codigo aceptado'   
     end
 
-    it 'Deberia no deberia ser posible setear un el siguiente codigo: 125364fdsasd' do
+    it 'No deberia ser posible setear un el siguiente codigo: 125364fdsasd' do
         codigo = "125364f"
         juego = Juego.new()
         expect(juego.setCodigo(codigo)).to eq 'codigo no valido'    
     end
 
-    it 'Deberia no deberia ser posible setear el siguiente codigo:1253644 ' do
+    it 'No deberia ser posible setear el siguiente codigo:1253644 ' do
         codigo = "1254364"
         juego = Juego.new()
         expect(juego.setCodigo(codigo)).to eq 'codigo no valido'    
@@ -50,9 +50,11 @@ RSpec.describe Juego do
         expect(juego.caracteresRepetidos(codigo)).to eq true    
     end
     
-    it 'Deberia dar false si el codigo tiene numeros repetidos' do
-        codigo = "1253664"
+    it 'Debria ser capaz ingresar un intento' do
+        codigo = "125364"
+        intento = "4536"
         juego = Juego.new()
-        expect(juego.caracteresRepetidos(codigo)).to eq false    
+        juego.setCodigo(codigo)
+        expect(juego.intentarAdivinar(intento))    
     end
 end

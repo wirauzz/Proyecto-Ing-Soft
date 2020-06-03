@@ -37,6 +37,9 @@ class Juego
             c =~ /[0-9]/ && s.include?(c) ? (return false) : s << c }
           true
     end
+
+    def intentarAdivinar(intento)
+    end
 end
 
 
