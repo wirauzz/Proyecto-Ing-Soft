@@ -66,5 +66,20 @@ RSpec.describe Juego do
         expect(juego.intentarAdivinar(intento)).to eq 'las cadenas deben ser del mismo tamaño'    
     end
 
+    it 'Debria devolverme la cantidad de 4 vacas y 1 toro' do
+        codigo = "125364"
+        intento ="196435"
+        juego = Juego.new()
+        juego.setCodigo(codigo)
+        expect(juego.intentarAdivinar(intento)).to eq '4 vaca(s) y 1 toro(s)'    
+    end
+
+    it 'Debria devolverme la cantidad de 1 vaca y 2 toros' do
+        codigo = "125364"
+        intento ="987354"
+        juego = Juego.new()
+        juego.setCodigo(codigo)
+        expect(juego.intentarAdivinar(intento)).to eq '1 vaca(s) y 2 toro(s)'    
+    end
 
 end

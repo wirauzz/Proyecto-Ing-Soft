@@ -39,8 +39,23 @@ class Juego
     end
 
     def intentarAdivinar(intento)
+        @vacas=0;
+        @toros=0;
         if(@@codigo.length == intento.length) then
-            
+            for pos in 0...intento.length
+                if(intento[pos] == @@codigo[pos]) then
+                    @toros +=1
+                end
+            end
+
+            for pos in 0...intento.length do
+                for index in 0...intento.length do
+                    if(intento[pos] == @@codigo[index] && pos!=index)
+                        @vacas +=1
+                    end
+                end
+            end
+            return "#{@vacas} vaca(s) y #{@toros} toro(s)"
         else
             return "las cadenas deben ser del mismo tamaño"
         end
