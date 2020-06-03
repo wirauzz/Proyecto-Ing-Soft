@@ -1,10 +1,8 @@
 class Juego
     @@codigo = ''
 
-    def initialize(nuevoCodigo)
-        @@codigo = nuevoCodigo
+    def initialize()
     end
-    
 
     def getCodigo()
         return @@codigo
