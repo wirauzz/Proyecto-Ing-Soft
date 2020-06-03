@@ -27,7 +27,7 @@ RSpec.describe Juego do
     end
 
     it 'Deberia no deberia ser posible setear el siguiente codigo:1253644 ' do
-        codigo = "1253644"
+        codigo = "1254364"
         juego = Juego.new()
         expect(juego.setCodigo(codigo)).to eq 'codigo no valido'    
     end

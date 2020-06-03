@@ -1,7 +1,6 @@
 class Juego
-    @@codigo = ''
-
     def initialize()
+        @@codigo = ''
     end
 
     def getCodigo()
@@ -9,18 +8,21 @@ class Juego
     end
 
     def setCodigo(nuevoCodigo)
+        res = ''
         if(codigoValido(nuevoCodigo)) then
             @@codigo = nuevoCodigo
-            return 'codigo aceptado'
+            return res +='codigo aceptado'
         else
-            return 'codigo no valido'
+            return res +='codigo no valido'
         end
     end
 
     def codigoValido(nuevoCodigo)
-        if(soloNumeros(nuevoCodigo)) then
-           if(caracteresRepetidos(nuevoCodigo)) then
-                return true
+        if(nuevoCodigo != '') then
+            if(soloNumeros(nuevoCodigo)) then
+               if(caracteresRepetidos(nuevoCodigo)) then
+                    return true
+               end
            end
         end
         return false
@@ -31,21 +33,10 @@ class Juego
     end
 
     def caracteresRepetidos(nuevoCodigo)
-        if nuevoCodigo =~ /(.)\1/ then
-            return false
-          else
-            return true
-          end
+        nuevoCodigo.downcase.each_char.with_object('') { |c,s|
+            c =~ /[0-9]/ && s.include?(c) ? (return false) : s << c }
+          true
     end
-    
-
-
-
-
-
-
-    
-    
 end
 
 
