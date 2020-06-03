@@ -9,12 +9,26 @@ class Juego
     end
 
     def setCodigo(nuevoCodigo)
-        @@codigo = nuevoCodigo
+        if(codigoValido(nuevoCodigo)) then
+            @@codigo = nuevoCodigo
+        else
+            return 'codigo no valido'
+        end
     end
 
-    def codigoValido()
+    def codigoValido(nuevoCodigo)
+
+        if(soloNumeros(nuevoCodigo)) then
+            return true    
+        end
+        return false
+    end
+
+    def soloNumeros(nuevoCodigo)
+        return nuevoCodigo.scan(/\D/).empty?
     end
     
+
 
 
 

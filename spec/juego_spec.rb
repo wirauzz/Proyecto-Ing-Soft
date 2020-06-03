@@ -14,10 +14,11 @@ RSpec.describe Juego do
         expect(juego.getCodigo()).to eq codigo    
     end
 
-    it 'Por el momento no hace nada' do
+    it 'Deberia dar verdadero si el codigo contiene solo numeros' do
         codigo = "125364"
         juego = Juego.new()
-        juego.setCodigo(codigo)
-        expect(juego.codigoValido())    
+        expect(juego.soloNumeros(codigo)).to eq true    
     end
+
+    
 end
