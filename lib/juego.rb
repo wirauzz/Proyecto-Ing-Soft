@@ -10,6 +10,11 @@ class Juego
         return @@codigo
     end
 
+    def setCodigo(nuevoCodigo)
+        @@codigo = nuevoCodigo
+    end
+
+
 
 
 
