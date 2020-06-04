@@ -2,19 +2,20 @@ require 'juego.rb'
 
 RSpec.describe Juego do
 
-    it "Recibe una cantidad de intentos" do
+    it "Muestra la cantidad de intentos por defecto" do
         juego = Juego.new()
-        expect(juego.intentos()).to eq '3'
+        expect(juego.intento()).to eq 10
     end
-    it "Recibe un limite de codigo" do
+
+    it "Recibe un limite de codigo por defecto" do
         juego = Juego.new()
-        expect(juego.tamCodigo()).to eq '6'
-      
+        expect(juego.tamCodigo()).to eq 5
+    end
+
     it "Deberia retornar el codigo secreto por defecto" do
         juego = Juego.new()
         expect(juego.getCodigo()).to eq ''
     end
-
 
     it 'Deberia poder setear un nuevo codigo secreto' do
         codigo = "125364"
@@ -98,5 +99,4 @@ RSpec.describe Juego do
         juego.setCodigo(codigo)
         expect(juego.intentarAdivinar(intento)).to eq '1 vaca(s) y 2 toro(s)'    
     end
-
 end
