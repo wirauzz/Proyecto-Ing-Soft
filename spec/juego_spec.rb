@@ -4,12 +4,12 @@ RSpec.describe Juego do
 
     it "Muestra la cantidad de intentos por defecto" do
         juego = Juego.new()
-        expect(juego.intento()).to eq 10
+        expect(juego.getIntento()).to eq 10
     end
 
     it "Recibe un limite de codigo por defecto" do
         juego = Juego.new()
-        expect(juego.tamCodigo()).to eq 5
+        expect(juego.getTamCodigo()).to eq 5
     end
 
     it "Deberia retornar el codigo secreto por defecto" do

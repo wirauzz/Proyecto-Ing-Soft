@@ -12,9 +12,10 @@ post '/crearLimite' do
 end
 
 post '/formato' do
-    juego = Juego.new()
     @intentos = params[:intentos]
     @tamañoCodigo = params[:tamañoCodigo]
+    @@juego.setIntento(@intentos)
+    @@juego.setTamCodigo(@intentos)
     erb:condicion
 end
 

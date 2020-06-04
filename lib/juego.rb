@@ -4,18 +4,25 @@ class Juego
         @intentosRealizados = 0
         @intento = 10
         @tamañoCodigo = 5
-        @cows = 0
-        @bulls = 0
         @@codigo = ''
     end
 
-    def intento()
+    def getIntento()
         return @intento
     end 
 
-    def tamCodigo()
+    def getTamCodigo()
         return @tamañoCodigo
     end 
+
+    def setIntento(intento)
+        @intento = intento
+    end 
+
+    def setTamCodigo(tamCodigo)
+        @tamañoCodigo = tamCodigo
+    end 
+    
 
     def getCodigo()
         return @@codigo
