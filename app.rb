@@ -1,10 +1,25 @@
 require 'sinatra'
-require './lib/juego.rb'
-
+require './lib/juego'
 @@juego = Juego.new
 
 get '/' do
     erb:pantallaPrincipal
+end
+
+
+post '/crearLimite' do
+    erb:limite
+end
+
+post '/formato' do
+    juego = Juego.new()
+    @intentos = params[:intentos]
+    @tamañoCodigo = params[:tamañoCodigo]
+    erb:condicion
+end
+
+post '/otroIntento' do
+    erb:intentos
 end
 
 post '/' do

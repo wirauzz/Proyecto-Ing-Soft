@@ -1,4 +1,16 @@
 class Juego
+
+    def initialize
+        @intentosRealizados = 0
+        @cows = 0
+        @bulls = 0
+    end
+    def intento()
+        return @intento
+    end  
+    def tamCodigo()
+        return @tamañoCodigo
+    end 
     def initialize()
         @@codigo = ''
     end
@@ -73,8 +85,6 @@ class Juego
         end
         return toros
     end
-
-
 end
 
 
