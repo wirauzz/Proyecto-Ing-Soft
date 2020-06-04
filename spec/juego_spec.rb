@@ -13,7 +13,7 @@ RSpec.describe Juego do
     end
 
     it "Deberia crear un codigo aleatorio" do
-        juego = juego.new()
+        juego = Juego.new()
         expect(juego.generarCodigoAleatorio()).to eq "codgio aleatorio genereado"
     end
     
