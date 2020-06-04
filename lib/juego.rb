@@ -1,26 +1,33 @@
 class Juego
 
     def initialize
-        @intentosRealizados = 0
-        @intento = 10
-        @tamañoCodigo = 5
+        @@intentosRealizados = 1
+        @@intento = 10
+        @@tamanoCodigo = 5
         @@codigo = ''
     end
 
     def getIntento()
-        return @intento
+        return @@intento
     end 
 
+    def getIntentosRealizados()
+        return @@intentosRealizados
+    end
+
     def getTamCodigo()
-        return @tamañoCodigo
+        return @@tamanoCodigo
     end 
 
     def setIntento(intento)
-        @intento = intento
+        @@intento = intento
     end 
 
     def setTamCodigo(tamCodigo)
-        @tamañoCodigo = tamCodigo
+        if(tamCodigo != @@tamanoCodigo) then
+            @@tamanoCodigo = tamCodigo
+            @@codigo.clear
+        end
     end 
     
 
@@ -38,15 +45,30 @@ class Juego
         end
     end
 
+    def resetGame()
+        @@intentosRealizados =1
+        @@codigo.clear
+    end
+
+
     def codigoValido(nuevoCodigo)
         if(nuevoCodigo != '') then
-            if(soloNumeros(nuevoCodigo)) then
-               if(caracteresRepetidos(nuevoCodigo)) then
-                    return true
-               end
-           end
+            if(verificarTamano(nuevoCodigo)) then
+                if(soloNumeros(nuevoCodigo)) then
+                    if(caracteresRepetidos(nuevoCodigo)) then
+                        return true
+                    end
+                end
+            end
         end
-        return false
+    end
+
+    def verificarTamano(nuevoCodigo)
+        if(nuevoCodigo.length!=@@tamanoCodigo) then
+            return false
+        else
+            return true
+        end
     end
 
     def soloNumeros(nuevoCodigo)
@@ -61,14 +83,24 @@ class Juego
 
     def intentarAdivinar(intento)
         if(soloNumeros(intento)) then
-            if(@@codigo.length == intento.length) then
+            if(@@tamanoCodigo == intento.length) then
                 @vacas=0
                 @toros=0
                 @toros = calcularCantidadDeToros(intento, @toros)
-                @vacas = calcularCantidadVacas(intento, @vacas)
-                return "#{@vacas} vaca(s) y #{@toros} toro(s)"
+                if(@toros == intento.length)
+                    return true
+                else
+                    @@intentosRealizados += 1
+                    if(@@intentosRealizados >= @@intento) then
+                        return false
+                    else
+                        @vacas = calcularCantidadVacas(intento, @vacas)
+                        return "#{@vacas} vaca(s) y #{@toros} toro(s)"
+                    end
+                end
+
             else
-                return "las cadenas deben ser del mismo tamaño"
+                return "las cadenas deben ser del mismo tamanio"
             end
         else
             return "la cadena debe solo contener numeros"

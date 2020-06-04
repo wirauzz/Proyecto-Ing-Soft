@@ -6,9 +6,8 @@
 </form>
 
 <form method='post' action='/'>
-    Codigo secreto: <input type='text' name='nuevoCodigo'>
+    Codigo secreto: <input type='text' name='nuevoCodigo'  maxlength="<%=@@juego.getTamCodigo.to_i%>" size="<%=@@juego.getTamCodigo.to_i%>">    <input type="submit" value='Validar'>
     <p><%=@respuesta%></p>
-    <input type="submit" value='Validar'>
 </form>
 
 <form method='get' action='/juego'>

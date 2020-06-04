@@ -3,29 +3,32 @@ require './lib/juego'
 @@juego = Juego.new
 
 get '/' do
+    @@juego.resetGame
     erb:pantallaPrincipal
 end
 
 
+delete '/' do
+    @@juego.resetGame
+    erb:pantallaPrincipal
+end
+
 post '/crearLimite' do
+    @intentosActuales = @@juego.getIntento.to_i
+    @tamañoCodigo = @@juego.getTamCodigo.to_i
     erb:limite
 end
 
 post '/formato' do
     @intentos = params[:intentos]
-    @tamañoCodigo = params[:tamañoCodigo]
-    @@juego.setIntento(@intentos)
-    @@juego.setTamCodigo(@intentos)
+    @tamañoCodigo = params[:tamanoCodigo]
+    @@juego.setIntento(@intentos.to_i)
+    @@juego.setTamCodigo(@tamañoCodigo.to_i)
     erb:condicion
-end
-
-post '/otroIntento' do
-    erb:intentos
 end
 
 post '/' do
     @codigo = params[:nuevoCodigo]
- 
     @respuesta = @@juego.setCodigo(@codigo)
     erb:pantallaPrincipal
 end
@@ -42,8 +45,17 @@ end
 
 
 post '/juego' do
+    @respuesta=''
     @intentos = params[:nuevoIntento]
     @respuesta = @@juego.intentarAdivinar(@intentos)
-    erb:pantallaDeIntentos
+    if(@respuesta == true || @respuesta==false) then
+        if(@respuesta==false) then
+            erb:pantallaPerdiste
+        else
+            erb:pantallaGanaste
+        end
+    else
+        erb:pantallaDeIntentos
+    end
 end
 

@@ -2,8 +2,11 @@
 
 
 <form method='post' action='/juego'>
-    Codigo: <input type='text' name='nuevoIntento'>
+    Codigo: <input type='text' name='nuevoIntento'  maxlength="<%=@@juego.getTamCodigo.to_i%>" size="<%=@@juego.getTamCodigo.to_i%>">
     <p><%=@respuesta%></p>
     <input type="submit" value='Ingresar intento'>
 </form>
 
+
+<h3>Intentos restantes<h3>
+<h3><%=@@juego.getIntentosRealizados%>/<%=@@juego.getIntento%><h3>
