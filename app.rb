@@ -8,8 +8,8 @@ get '/' do
 end
 
 
-delete '/' do
-    @@juego.resetGame
+get '/codigoAleatorio' do
+    @respuestac = @@juego.generarCodigoAleatorio()
     erb:pantallaPrincipal
 end
 
@@ -29,7 +29,7 @@ end
 
 post '/' do
     @codigo = params[:nuevoCodigo]
-    @respuesta = @@juego.setCodigo(@codigo)
+    @codigoRespuesta = @@juego.setCodigo(@codigo)
     erb:pantallaPrincipal
 end
 
@@ -38,7 +38,7 @@ get '/juego' do
     if(@@juego.getCodigo()!='') then
         erb:pantallaDeIntentos
     else
-        @respuesta = "¡Aun no definiste el codigo secreto!"
+        @EstatusJuego = "¡Aun no definiste el codigo secreto!"
         erb:pantallaPrincipal
     end
 end

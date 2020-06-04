@@ -1,3 +1,5 @@
+require 'set'
+
 class Juego
 
     def initialize
@@ -29,7 +31,11 @@ class Juego
             @@codigo.clear
         end
     end 
-    
+
+    def generarCodigoAleatorio()
+        @@codigo = [*0..9].sample(@@tamanoCodigo).join('')
+        return "codgio aleatorio genereado"
+    end
 
     def getCodigo()
         return @@codigo

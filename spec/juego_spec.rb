@@ -12,6 +12,10 @@ RSpec.describe Juego do
         expect(juego.getTamCodigo()).to eq 5
     end
 
+    it "Deberia crear un codigo aleatorio" do
+        juego = juego.new()
+        expect(juego.generarCodigoAleatorio()).to eq "codgio aleatorio genereado"
+    end
     
     it "Deberia retornar el tamaño que puede llegar a tener el codigo" do
         juego = Juego.new()

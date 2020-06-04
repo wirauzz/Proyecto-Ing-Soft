@@ -6,11 +6,17 @@
 </form>
 
 <form method='post' action='/'>
-    Codigo secreto: <input type='text' name='nuevoCodigo'  maxlength="<%=@@juego.getTamCodigo.to_i%>" size="<%=@@juego.getTamCodigo.to_i%>">    <input type="submit" value='Validar'>
-    <p><%=@respuesta%></p>
+    Codigo secreto: <input type='text' name='nuevoCodigo'  maxlength="<%=@@juego.getTamCodigo.to_i%>" size="<%=@@juego.getTamCodigo.to_i%>"> <input type="submit" value='Validar'>
+    <p><%=@codigoRespuesta%></p>
+</form>
+
+<form method='get' action='/codigoAleatorio'>
+    <input type="submit" value='Generar codigo aleatorio'>
+    <p><%=@respuestac%></p>
 </form>
 
 <form method='get' action='/juego'>
     <input type="submit" value='Jugar!'>
+      <p><%=@EstatusJuego%></p>
 </form>
 
