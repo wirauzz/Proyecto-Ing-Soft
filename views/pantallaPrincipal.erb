@@ -1,10 +1,18 @@
+
 <form method='post' action='crearLimite'>
     ingresear condiciones: 
     <input type='submit' value='enviar'>
 
+<h1> Ingresa su codigo secreto </h1>
+
+
+<form method='post' action='/'>
+    Codigo: <input type='text' name='nuevoCodigo'>
+    <p><%=@respuesta%></p>
+    <input type="submit" value='validar'>
 </form>
 
-<%# Historia de usuario 1: Anotar un punto de cualquiera de los dos jugadores %>
-<%# Historia de usuario 2: Controlar los casos de advantage %>
-<%# Historia de usuario 2: Ganar el game %>
+<form method='get' action='/juego'>
+    <input type="submit" value='Jugar!'>
+</form>
 
