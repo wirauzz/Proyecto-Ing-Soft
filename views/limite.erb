@@ -1,15 +1,75 @@
-<form method='post' action='formato'>
-    <h3>Cantidad de intentos</h3>
-    <br>
-    <input type='number' name='intentos' value="<%=@intentosActuales%>" min="1" max="20">    
-    <br>
-    <h3>Tamaño del codigo secreto</h3>
-    <br>
-    <input type='number' name='tamanoCodigo' value="<%=@tamañoCodigo%>" min="1" max="10">
-    
-    <br>
-    <input type='submit' value='enviar'>
-</form>
-<form method='get' action='/'>
-    <input type="submit" value='volver al inicio'>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body { 
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-image: url('/images/bg_image.jpg');
+        background-size: 100% auto;
+    }
+
+    .form_wrap{
+        background-color: rgba(200, 200, 200, 0.65);
+        width:350px;
+        height:auto;
+        margin:50px auto 0;
+        padding:50px;
+        color:#333;
+        border:2px solid #C2D6FF;
+        border-radius:40px 0 40px 0
+    }
+
+    .content-prev {
+        background-color: rgba(200, 200, 200, 0.65);
+        width:350px;
+        height:auto;
+        margin:50px 0px 0px 0px;
+        padding:50px;
+        color:#333;
+        border:2px solid #C2D6FF;
+        border-radius:40px 0 40px 0;
+    }
+
+    h1, h2 {
+        color: white;
+        text-shadow: 2px 2px black;
+    }
+
+    input[type=number] {
+        background-color: black;
+        color: white;
+        height: 20px;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <center><h1> Opciones </h1><center>
+    <center><div class="content-prev">
+    <form method='post' action='formato'>
+        <h3>Cantidad de intentos</h3> <input type='number' name='intentos' value="<%=@intentosActuales%>" min="1" max="20">    
+        <h3>Tamaño del codigo secreto</h3> <input type='number' name='tamanoCodigo' value="<%=@tamañoCodigo%>" min="1" max="10">
+        <br><br>
+
+        <input type='submit' value='enviar'>
+        <br><br>
+    </form>
+    <form method='get' action='/'>
+        <input type="submit" value='volver al inicio'>
+    </form>
+    </div><center>
+</body>
+</html>
+
+
+
+
+
+
