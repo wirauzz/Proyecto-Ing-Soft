@@ -8,6 +8,8 @@ end
 
 
 post '/crearLimite' do
+    @dificultad = params[:dificultad]
+    @@juego.setDificultad(@dificultad)
     erb:limite
 end
 
@@ -15,7 +17,15 @@ post '/formato' do
     juego = Juego.new()
     @intentos = params[:intentos]
     @tamañoCodigo = params[:tamañoCodigo]
-    erb:condicion
+    @dificultad=@@juego.dificultad()
+    if(@@juego.verificarDificultad(@tamañoCodigo.to_i,@dificultad)) then
+        erb:condicion
+    else
+        
+        @respuesta = "El tamaño no es adecuado para la dificultad"
+        erb:limite
+    end
+
 end
 
 post '/otroIntento' do

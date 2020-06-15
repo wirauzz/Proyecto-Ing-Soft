@@ -1,4 +1,5 @@
 <form method='post' action='formato'>
+    <h2>Dificultad: <%=@dificultad%></h2>
     <h3>Cantidad de intentos</h3>
     <br>
     <input type='number' name='intentos'>    
@@ -6,6 +7,7 @@
     <h3>Tamaño del codigo secreto</h3>
     <br>
     <input type='number' name='tamañoCodigo'>
+    <p><%=@respuesta%></p>
     
     <br>
     <input type='submit' value='enviar'>

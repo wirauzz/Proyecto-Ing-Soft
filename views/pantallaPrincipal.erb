@@ -1,6 +1,12 @@
 
 <form method='post' action='crearLimite'>
-    ingresear condiciones: 
+    <!-- lo puse en vez de ingresar condiciones, pero va al mismo formulario-->
+    <label for="dificultad">Elige la dificultad:</label>
+    <select name="dificultad" id="dificultad">
+    <option value="Facil">Facil</option>
+    <option value="Media">Media</option>
+    <option value="Dificil">Dificil</option>
+    </select> 
     <input type='submit' value='enviar'>
 
 <h1> Ingresa su codigo secreto </h1>
@@ -15,4 +21,3 @@
 <form method='get' action='/juego'>
     <input type="submit" value='Jugar!'>
 </form>
-
