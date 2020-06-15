@@ -1,4 +1,17 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body { 
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-image: url('/images/descarga.jpg');
+        background-size: 100% auto;
+    }
 <form method='post' action='crearLimite'>
     <!-- lo puse en vez de ingresar condiciones, pero va al mismo formulario-->
     <label for="dificultad">Elige la dificultad:</label>
@@ -8,15 +21,67 @@
     <option value="Dificil">Dificil</option>
     </select> 
     <input type='submit' value='enviar'>
+      .form_wrap{
+        background-color: rgba(200, 200, 200, 0.65);
+        width:350px;
+        height:auto;
+        margin:50px auto 0;
+        padding:50px;
+        color:#333;
+        border:2px solid #C2D6FF;
+        border-radius:40px 0 40px 0
+    }
+    .content-prev {
+        background-color: rgba(200, 200, 200, 0.65);
+        width:350px;
+        height:auto;
+        margin:50px 0px 0px 0px;
+        padding:50px;
+        color:#333;
+        border:2px solid #C2D6FF;
+        border-radius:40px 0 40px 0;
+    }
 
-<h1> Ingresa su codigo secreto </h1>
+    h1, h2 {
+        color: white;
+        text-shadow: 2px 2px black;
+    }
+
+    input[type=number] {
+        background-color: black;
+        color: white;
+        height: 20px;
+    }
 
 
-<form method='post' action='/'>
-    Codigo: <input type='text' name='nuevoCodigo'>
-    <p><%=@respuesta%></p>
-    <input type="submit" value='validar'>
-</form>
+
+    </style>
+</head>
+<body>
+    <center><h1> Ingresa su codigo secreto </h1><center>
+    <center><div class="content-prev">
+        <form method='post' action='crearLimite'>
+            Opciones de juego: 
+            <input type='submit' value='Opciones'>
+        </form>
+        <br>
+        <form method='post' action='/'>
+            Codigo secreto: <input type='text' name='nuevoCodigo'  maxlength="<%=@@juego.getTamCodigo.to_i%>" size="<%=@@juego.getTamCodigo.to_i%>"> <input type="submit" value='Validar'>
+            <p><%=@codigoRespuesta%></p>
+        </form>
+        <br>
+        <form method='get' action='/codigoAleatorio'>
+            <input type="submit" value='Generar codigo aleatorio'>
+            <p><%=@respuestac%></p>
+        </form>
+        <br>
+        <form method='get' action='/juego'>
+            <center><input type="submit" value='Jugar!'><center>
+            <p><%=@EstatusJuego%></p>
+        </form>
+    </div><center>
+</body>
+</html>
 
 <form method='get' action='/juego'>
     <input type="submit" value='Jugar!'>

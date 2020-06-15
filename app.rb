@@ -3,9 +3,15 @@ require './lib/juego'
 @@juego = Juego.new
 
 get '/' do
+    @@juego.resetGame
     erb:pantallaPrincipal
 end
 
+
+get '/codigoAleatorio' do
+    @respuestac = @@juego.generarCodigoAleatorio()
+    erb:pantallaPrincipal
+end
 
 post '/crearLimite' do
     @dificultad = params[:dificultad]
@@ -14,7 +20,6 @@ post '/crearLimite' do
 end
 
 post '/formato' do
-    juego = Juego.new()
     @intentos = params[:intentos]
     @tamañoCodigo = params[:tamañoCodigo]
     @dificultad=@@juego.dificultad()
@@ -25,17 +30,11 @@ post '/formato' do
         @respuesta = "El tamaño no es adecuado para la dificultad"
         erb:limite
     end
-
-end
-
-post '/otroIntento' do
-    erb:intentos
 end
 
 post '/' do
     @codigo = params[:nuevoCodigo]
- 
-    @respuesta = @@juego.setCodigo(@codigo)
+    @codigoRespuesta = @@juego.setCodigo(@codigo)
     erb:pantallaPrincipal
 end
 
@@ -44,15 +43,24 @@ get '/juego' do
     if(@@juego.getCodigo()!='') then
         erb:pantallaDeIntentos
     else
-        @respuesta = "¡Aun no definiste el codigo secreto!"
+        @EstatusJuego = "¡Aun no definiste el codigo secreto!"
         erb:pantallaPrincipal
     end
 end
 
 
 post '/juego' do
+    @respuesta=''
     @intentos = params[:nuevoIntento]
     @respuesta = @@juego.intentarAdivinar(@intentos)
-    erb:pantallaDeIntentos
+    if(@respuesta == true || @respuesta==false) then
+        if(@respuesta==false) then
+            erb:pantallaPerdiste
+        else
+            erb:pantallaGanaste
+        end
+    else
+        erb:pantallaDeIntentos
+    end
 end
 

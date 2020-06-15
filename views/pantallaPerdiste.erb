@@ -53,21 +53,15 @@
 <body>
     <center><h1> Ingresa su intento para adivinar el codigo </h1><center>
     <center><div class="content-prev">
-
-    <form method='post' action='/juego'>
-        Codigo: <input type='text' name='nuevoIntento'  maxlength="<%=@@juego.getTamCodigo.to_i%>" size="<%=@@juego.getTamCodigo.to_i%>">
-        <p><%=@respuesta%></p>
-        <input type="submit" value='Ingresar intento'>
+    <h1>Perdiste :(!</h1>
+    <h3>Codigo<h3>
+    <h3><%=@@juego.getCodigo%><h3>
+    <form method='get' action='/'>
+        <input type="submit" value='volver al inicio'>
     </form>
-
-
-    <h3>Intentos restantes<h3>
-    <h3><%=@@juego.getIntentosRealizados%>/<%=@@juego.getIntento%><h3>
     </div><center>
 </body>
 </html>
-
-
 
 
 
