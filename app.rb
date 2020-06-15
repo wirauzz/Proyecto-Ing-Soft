@@ -14,17 +14,22 @@ get '/codigoAleatorio' do
 end
 
 post '/crearLimite' do
-    @intentosActuales = @@juego.getIntento.to_i
-    @tamañoCodigo = @@juego.getTamCodigo.to_i
+    @dificultad = params[:dificultad]
+    @@juego.setDificultad(@dificultad)
     erb:limite
 end
 
 post '/formato' do
     @intentos = params[:intentos]
-    @tamañoCodigo = params[:tamanoCodigo]
-    @@juego.setIntento(@intentos.to_i)
-    @@juego.setTamCodigo(@tamañoCodigo.to_i)
-    erb:condicion
+    @tamañoCodigo = params[:tamañoCodigo]
+    @dificultad=@@juego.dificultad()
+    if(@@juego.verificarDificultad(@tamañoCodigo.to_i,@dificultad)) then
+        erb:condicion
+    else
+        
+        @respuesta = "El tamaño no es adecuado para la dificultad"
+        erb:limite
+    end
 end
 
 post '/' do

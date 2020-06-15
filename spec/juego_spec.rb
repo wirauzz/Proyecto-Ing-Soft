@@ -175,6 +175,46 @@ RSpec.describe Juego do
         expect(juego.intentarAdivinar(intento)).to eq true    
     end
 
+    it 'Ingreso difucultad Facil y devuelve Facil' do
+        difucultad ="Facil"
+        juego = Juego.new()
+        juego.setDificultad(difucultad)
+        expect(juego.dificultad(difucultad)).to eq 'Facil'    
+    end
+    it 'Ingreso difucultad Media y devuelve Media' do
+        difucultad ="Media"
+        juego = Juego.new()
+        juego.setDificultad(difucultad)
+        expect(juego.dificultad(difucultad)).to eq 'Media'    
+    end
+    it 'Ingreso difucultad Dificil y devuelve Dificil' do
+        difucultad ="Dificil"
+        juego = Juego.new()
+        juego.setDificultad(difucultad)
+        expect(juego.dificultad(difucultad)).to eq 'Dificil'    
+    end
+
+    it 'Ingreso tamaño 4 en difucultad Dificil y devuelve error' do
+        difucultad ="Dificil"
+        tamaño = 4
+        juego = Juego.new()
+        juego.setDificultad(difucultad)
+        expect(juego.verificarDificultad(tamaño, difucultad)).to eq 'false'    
+    end
+
+    it 'Ingreso tamaño 4 en difucultad Facil y devuelve error' do
+        difucultad ="Facil"
+        tamaño = 5
+        juego = Juego.new()
+        juego.setDificultad(difucultad)
+        expect(juego.verificarDificultad(tamaño, difucultad)).to eq 'false'    
+    end
+    it 'Ingreso tamaño 4 en difucultad Media y devuelve error' do
+        difucultad ="Media"
+        tamaño = 9
+        juego = Juego.new()
+        juego.setDificultad(difucultad)
+        expect(juego.verificarDificultad(tamaño, difucultad)).to eq 'false'    
     it 'Deberia tener false si se me acabaron los intentos' do
         codigo ="12536"
         intento ="56164"
@@ -183,6 +223,6 @@ RSpec.describe Juego do
         for pos in 0...9 do
             juego.intentarAdivinar(intento)
         end
-        expect(juego.intentarAdivinar(intento)).to eq false    
+        expect(juego.intentarAdivinar(intento)).to eq false 
     end
 end

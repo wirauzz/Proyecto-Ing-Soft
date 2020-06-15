@@ -12,8 +12,16 @@
         background-image: url('/images/descarga.jpg');
         background-size: 100% auto;
     }
-
-    .form_wrap{
+<form method='post' action='crearLimite'>
+    <!-- lo puse en vez de ingresar condiciones, pero va al mismo formulario-->
+    <label for="dificultad">Elige la dificultad:</label>
+    <select name="dificultad" id="dificultad">
+    <option value="Facil">Facil</option>
+    <option value="Media">Media</option>
+    <option value="Dificil">Dificil</option>
+    </select> 
+    <input type='submit' value='enviar'>
+      .form_wrap{
         background-color: rgba(200, 200, 200, 0.65);
         width:350px;
         height:auto;
@@ -23,7 +31,6 @@
         border:2px solid #C2D6FF;
         border-radius:40px 0 40px 0
     }
-
     .content-prev {
         background-color: rgba(200, 200, 200, 0.65);
         width:350px;
@@ -76,5 +83,6 @@
 </body>
 </html>
 
-
-
+<form method='get' action='/juego'>
+    <input type="submit" value='Jugar!'>
+</form>

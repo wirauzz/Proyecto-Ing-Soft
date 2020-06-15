@@ -8,9 +8,14 @@ class Juego
         @@tamanoCodigo = 5
         @@codigo = ''
     end
-
-    def getIntento()
-        return @@intento
+    def intento()
+        return @intento
+    end
+    def dificultad()
+        return @@dificultad
+    end  
+    def tamCodigo()
+        return @tamañoCodigo
     end 
 
     def getIntentosRealizados()
@@ -41,6 +46,10 @@ class Juego
         return @@codigo
     end
 
+    def setDificultad(dificultad)
+        
+        @@dificultad=dificultad.to_s
+    end
     def setCodigo(nuevoCodigo)
         res = ''
         if(codigoValido(nuevoCodigo)) then
@@ -76,11 +85,28 @@ class Juego
             return true
         end
     end
+    def verificarDificultad(tamañoCodigo, dificultad)
+        if(dificultad=="Facil" and tamañoCodigo<=4) then
+            return true
+        end
+        if(dificultad=="Media" and tamañoCodigo>4 and tamañoCodigo<=7) then
+            return true
+        end
+        if(dificultad=="Dificil" and tamañoCodigo>7 and tamañoCodigo<=10) then                
+            return true
+        end
+        return false
+    end
 
     def soloNumeros(nuevoCodigo)
         return nuevoCodigo.scan(/\D/).empty?
     end
-
+    def tamanio()
+        if(verificarDificultad()) then
+            return @tamañoCodigo
+        end
+        return "tamaño incorrecto"
+    end
     def caracteresRepetidos(nuevoCodigo)
         nuevoCodigo.downcase.each_char.with_object('') { |c,s|
             c =~ /[0-9]/ && s.include?(c) ? (return false) : s << c }
