@@ -4,7 +4,9 @@ RSpec.describe Juego do
 
     it "Muestra la cantidad de intentos por defecto" do
         juego = Juego.new()
-        expect(juego.getIntento()).to eq 15
+        nuevoValor = 15
+        juego.setIntento(nuevoValor)
+        expect(juego.getIntento()).to eq nuevoValor
     end
 
     it "Recibe un limite de codigo por defecto" do
@@ -45,13 +47,13 @@ RSpec.describe Juego do
     it 'No deberia ser posible setear un el siguiente codigo: 125364fdsasd' do
         codigo = "125364fdsasd"
         juego = Juego.new()
-        expect(juego.setCodigo(codigo)).to eq 'codigo no valido'    
+        expect(juego.setCodigo(codigo)).to eq 'codigo no valido razon: El codigo y el tamanio de la cadena no coiciden'    
     end
 
     it 'No deberia ser posible setear el siguiente codigo:1253644 ' do
         codigo = "12544"
         juego = Juego.new()
-        expect(juego.setCodigo(codigo)).to eq 'codigo no valido'    
+        expect(juego.setCodigo(codigo)).to eq 'codigo no valido razon: Existe un caracter repetido en el codigo'    
     end
 
     it 'Deberia devolverme aumentar en 1 mis intentos' do
@@ -100,10 +102,10 @@ RSpec.describe Juego do
     end
 
     it 'Ingreso difucultad Media y devuelve Media' do
-        difucultad ="Media"
+        difucultad ="Medio"
         juego = Juego.new()
         juego.setDificultad(difucultad)
-        expect(juego.getDificultad()).to eq 'Media'    
+        expect(juego.getDificultad()).to eq 'Medio'    
     end
 
     it 'Ingreso difucultad Dificil y devuelve Dificil' do
@@ -112,4 +114,6 @@ RSpec.describe Juego do
         juego.setDificultad(difucultad)
         expect(juego.getDificultad()).to eq 'Dificil'    
     end
+
+    
 end

@@ -4,10 +4,6 @@ class Puntuaciones
         @puntuaciones = Array.new(10){Puntuacion.new}
     end
 
-    def getPuntuaciones()
-        return @puntuaciones
-    end
-
     def getPuntuacion(index)
         return @puntuaciones[index]
     end

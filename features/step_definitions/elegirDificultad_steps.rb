@@ -2,15 +2,15 @@
     visit '/inicio'
   end
   
-  Given('Presiono el boton {string} de la pantalla principal') do |string|
+  Then('Presiono el boton {string} de la pantalla principal') do |string|
     click_button(string)
   end
   
-  Given('elijo en el campo {string} la opcion de {string}') do |option, selector|
+  Then('elijo en el campo {string} la opcion de {string}') do |option, selector|
     all(option).last.find(:option, selector).select_option
   end
   
-  Given('Presiono el boton el boton {string}') do |string|
+  Then('Presiono el boton el boton {string}') do |string|
     click_button(string)
   end
 

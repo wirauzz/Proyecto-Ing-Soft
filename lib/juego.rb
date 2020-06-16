@@ -17,10 +17,6 @@ class Juego
         return @@dificultad
     end
 
-    def tamCodigo()
-        return @@tamañoCodigo
-    end 
-
     def getIntentosRealizados()
         return @@intentosRealizados
     end
@@ -54,11 +50,11 @@ class Juego
 
     def setCodigo(nuevoCodigo)
         res = ''
-        if(codigoValido(nuevoCodigo)) then
+        if(codigoValido(nuevoCodigo) == true) then
             @@codigo = nuevoCodigo
             return res +='codigo aceptado'
         else
-            return res +='codigo no valido'
+            return res +='codigo no valido razon: ' + codigoValido(nuevoCodigo)
         end
     end
 
@@ -87,9 +83,17 @@ class Juego
                 if(soloNumeros(nuevoCodigo)) then
                     if(caracteresRepetidos(nuevoCodigo)) then
                         return true
+                    else
+                        return "Existe un caracter repetido en el codigo"
                     end
+                else
+                    return "Existe un caracter en el codigo que no es un numero"
                 end
+            else
+                return "El codigo y el tamanio de la cadena no coiciden"
             end
+        else
+            return "El codigo esta vacio"
         end
     end
 
@@ -106,12 +110,7 @@ class Juego
     def soloNumeros(nuevoCodigo)
         return nuevoCodigo.scan(/\D/).empty?
     end
-    def tamanio()
-        if(verificarDificultad()) then
-            return @tamañoCodigo
-        end
-        return "tamaño incorrecto"
-    end
+
     
     def caracteresRepetidos(nuevoCodigo)
         nuevoCodigo.downcase.each_char.with_object('') { |c,s|
