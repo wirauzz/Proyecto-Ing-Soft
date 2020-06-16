@@ -58,12 +58,16 @@
     </style>
 </head>
 <body>
-    <center><h1> Bienvenido <%=@nombreJugador%> </h1><center>
+    <center><h1> Bienvenido <%=@@jugador.getNombre()%> </h1><center>
     <center><h1> Ingresa su codigo secreto </h1><center>
     <center><div class="content-prev">
         <form method='post' action='opciones'>
             Opciones de juego: 
             <input type='submit' value='Opciones'>
+        </form>
+        <br>
+        <form method='get' action='/scores'> 
+            <input type='submit' value='Ver puntuaciones'>
         </form>
         <br>
         <form method='post' action='/inicio'>

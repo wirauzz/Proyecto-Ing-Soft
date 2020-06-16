@@ -1,17 +1,29 @@
-require 'set'
-require 'jugador.rb'
 
 class Puntuaciones
     def initialize
-        @@jugadores[] = Jugador.new()
-        @@dificultad = 
+        @puntuaciones = Array.new(10){Puntuacion.new}
     end
 
-    def getNombre()
-        return @@Nombre
+    def getPuntuaciones()
+        return @puntuaciones
     end
 
-    def setNombre(nuevoNombre)
-        @@Nombre = nuevoNombre
+    def getPuntuacion(index)
+        return @puntuaciones[index]
     end
+
+    def setPuntuacion(nuevaPuntuacion, index)
+        @puntuaciones[index] = nuevaPuntuacion
+    end
+    
+    def agregarScore(nuevaPuntuacion)
+        for i in 0..9 do
+            if(@puntuaciones[i].getPuntuacion() >= nuevaPuntuacion.getPuntuacion()) then
+                @puntuaciones[i] = nuevaPuntuacion
+                break
+            end
+        end        
+    end
+    
+    
 end

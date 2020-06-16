@@ -1,4 +1,3 @@
-require 'set'
 
 class Jugador
     def initialize
