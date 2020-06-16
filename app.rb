@@ -1,9 +1,27 @@
 require 'sinatra'
 require './lib/juego'
-@@juego = Juego.new
+require './lib/jugador'
 
+@@juego = Juego.new
+@@jugador = Jugador.new
 get '/' do
+    erb:pantallaDeBienvenida
+end
+
+post '/' do
+    @nombreJugador = params[:nombre]
+    erb:pantallaPrincipal
+end
+
+
+get '/inicio' do
     @@juego.resetGame
+    erb:pantallaPrincipal
+end 
+
+post '/inicio' do
+    @codigo = params[:nuevoCodigo]
+    @codigoRespuesta = @@juego.setCodigo(@codigo)
     erb:pantallaPrincipal
 end
 
@@ -13,25 +31,18 @@ get '/codigoAleatorio' do
 end
 
 post '/opciones' do
-    @dificultad = params[:dificultad]
-    @@juego.setDificultad(@dificultad)
+
     erb:pantallaDeOpciones
 end
 
 post '/confirmarCambios' do
-    @intentos = @@juego.getIntento()
-    @tamañoCodigo = @@juego.getTamCodigo()
-    @dificultadActual= params[:dificultades]
-    @@juego.setDificultad(@dificultadActual)
+    @dificultad = params[:dificultades]
+    @@juego.setDificultad(@dificultad)
+    @respDificultadActual = @@juego.getDificultad()
+    @respIntentos = @@juego.getIntento()
+    @respTamanoCodigo = @@juego.getTamCodigo()
     erb:pantallaDeConfirmacionDeOpciones
 end
-
-post '/' do
-    @codigo = params[:nuevoCodigo]
-    @codigoRespuesta = @@juego.setCodigo(@codigo)
-    erb:pantallaPrincipal
-end
-
 
 get '/juego' do
     if(@@juego.getCodigo()!='') then
@@ -41,7 +52,6 @@ get '/juego' do
         erb:pantallaPrincipal
     end
 end
-
 
 post '/juego' do
     @respuesta=''

@@ -12,8 +12,16 @@
         background-image: url('/images/descarga.jpg');
         background-size: 100% auto;
     }
-
-    .form_wrap{
+<form method='post' action='crearLimite'>
+    <!-- lo puse en vez de ingresar condiciones, pero va al mismo formulario-->
+    <label for="dificultad">Elige la dificultad:</label>
+    <select name="dificultad" id="dificultad">
+    <option value="Facil">Facil</option>
+    <option value="Media">Media</option>
+    <option value="Dificil">Dificil</option>
+    </select> 
+    <input type='submit' value='enviar'>
+      .form_wrap{
         background-color: rgba(200, 200, 200, 0.65);
         width:350px;
         height:auto;
@@ -23,7 +31,6 @@
         border:2px solid #C2D6FF;
         border-radius:40px 0 40px 0
     }
-
     .content-prev {
         background-color: rgba(200, 200, 200, 0.65);
         width:350px;
@@ -51,12 +58,12 @@
     </style>
 </head>
 <body>
+    <center><h1> Ingresa su codigo secreto </h1><center>
     <center><div class="content-prev">
-    <h2> Dificultad elegida: <%=@respDificultadActual%></h2>
-    <h2>Los intentos que puede hacer el jugador son: <%=@respIntentos%></h2>
-    <h2>Con un tamaño de codigo de: <%=@respTamanoCodigo%> digitos</h2> 
-    <form method='get' action='/inicio'>
-        <input type="submit" value='volver al inicio'>
+    <h1>Bienvenido a vacas y toros</h1>
+    <form method='post' action='/'>
+    <h3>Ingresa tu nombre y juega!</h3> <input type='text' name='nombre'>    
+        <input type="submit" value='Ingresar'>
     </form>
     </div><center>
 </body>

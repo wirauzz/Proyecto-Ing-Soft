@@ -1,7 +1,7 @@
 Feature:
-Como Jugador
-Quiero quiero poder ingresar mi nombre
-Para ser saludado con mi nombre
+Como: Jugador de toros y vacas
+Quiero: Colocar un nombre de jugador
+Para: Tener una experiencia mas personalizada
 
 Scenario:
 Given Estoy en la pagina de bienvenida

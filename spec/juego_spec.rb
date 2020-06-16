@@ -88,7 +88,7 @@ RSpec.describe Juego do
         intento ="56164"
         juego = Juego.new()
         juego.setCodigo(codigo)
-        for pos in 0...9 do
+        for pos in 0...14 do
             juego.intentarAdivinar(intento)
         end
         expect(juego.intentarAdivinar(intento)).to eq false 

@@ -4,7 +4,7 @@ class Juego
 
     def initialize
         @@intentosRealizados = 1
-        @@intentosDisponibles = 10
+        @@intentosDisponibles = 15
         @@tamanoCodigo = 5
         @@codigo = ''
         @@dificultad = 'Medio'
