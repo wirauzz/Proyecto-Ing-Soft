@@ -72,9 +72,13 @@ post '/juego' do
             erb:pantallaPerdiste
         else
             @nuevaPuntuacion = Puntuacion.new
-            @nuevaPuntuacion.setNombre(@@jugador.getNombre())
-            @nuevaPuntuacion.setPuntuacion(@intentosTotales)
-            @@score.agregarScore(@nuevaPuntuacion)
+            if(@@juego.getDificultad()=="Medio") then
+                @nuevaPuntuacion.setNombre(@@jugador.getNombre())
+                @nuevaPuntuacion.setPuntuacion(@intentosTotales)
+                @@score.agregarScore(@nuevaPuntuacion)
+            end
+
+
             erb:pantallaGanaste
         end
     else

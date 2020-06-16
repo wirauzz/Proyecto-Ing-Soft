@@ -51,9 +51,9 @@
     </style>
 </head>
 <body>
-    <center><h1> Score </h1><center>
+    <center><h1> Score dificultad media </h1><center>
     <center><div class="content-prev">
-
+    <h3># |         Nombre | Cantidad de intentos </h3>
     <% for i in 0..9 do%>
           <%=i+1%> | <%=@@score.getPuntuacion(i).getNombre()%> | <%=@@score.getPuntuacion(i).getPuntuacion()%>
         <br>
