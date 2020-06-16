@@ -28,9 +28,11 @@ GEM
     multi_json (1.14.1)
     multi_test (0.1.2)
     mustermann (1.0.3)
+    nokogiri (1.10.5)
+      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.5-x64-mingw32)
       mini_portile2 (~> 2.4.0)
-    rack (2.0.7)
+    rack (2.2.3)
     rack-protection (2.0.7)
       rack
     rack-test (1.1.0)
@@ -72,6 +74,7 @@ GEM
       rack-test (>= 0.5.3)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
