@@ -4,18 +4,22 @@ class Juego
 
     def initialize
         @@intentosRealizados = 1
-        @@intento = 10
+        @@intentosDisponibles = 10
         @@tamanoCodigo = 5
         @@codigo = ''
+        @@dificultad = 'Medio'
     end
-    def intento()
-        return @intento
+
+    def getIntento()
+        return @@intentosDisponibles
     end
-    def dificultad()
+
+    def getDificultad()
         return @@dificultad
-    end  
+    end
+
     def tamCodigo()
-        return @tamañoCodigo
+        return @@tamañoCodigo
     end 
 
     def getIntentosRealizados()
@@ -25,10 +29,39 @@ class Juego
     def getTamCodigo()
         return @@tamanoCodigo
     end 
+    
+    def getCodigo()
+        return @@codigo
+    end
 
     def setIntento(intento)
-        @@intento = intento
+        @@intentosDisponibles = intento
     end 
+
+    def setDificultad(dificultad)
+        case dificultad
+            when 'Facil'
+                @@intentosDisponibles = 10
+                @@tamanoCodigo = 3
+            when 'Medio'
+                @@intentosDisponibles = 15
+                @@tamanoCodigo = 5
+            when 'Dificil'
+                @@intentosDisponibles = 20
+                @@tamanoCodigo = 8
+        end
+        @@dificultad=dificultad
+    end
+
+    def setCodigo(nuevoCodigo)
+        res = ''
+        if(codigoValido(nuevoCodigo)) then
+            @@codigo = nuevoCodigo
+            return res +='codigo aceptado'
+        else
+            return res +='codigo no valido'
+        end
+    end
 
     def setTamCodigo(tamCodigo)
         if(tamCodigo != @@tamanoCodigo) then
@@ -42,23 +75,6 @@ class Juego
         return "codgio aleatorio genereado"
     end
 
-    def getCodigo()
-        return @@codigo
-    end
-
-    def setDificultad(dificultad)
-        
-        @@dificultad=dificultad.to_s
-    end
-    def setCodigo(nuevoCodigo)
-        res = ''
-        if(codigoValido(nuevoCodigo)) then
-            @@codigo = nuevoCodigo
-            return res +='codigo aceptado'
-        else
-            return res +='codigo no valido'
-        end
-    end
 
     def resetGame()
         @@intentosRealizados =1
@@ -78,6 +94,7 @@ class Juego
         end
     end
 
+
     def verificarTamano(nuevoCodigo)
         if(nuevoCodigo.length!=@@tamanoCodigo) then
             return false
@@ -85,18 +102,7 @@ class Juego
             return true
         end
     end
-    def verificarDificultad(tamañoCodigo, dificultad)
-        if(dificultad=="Facil" and tamañoCodigo<=4) then
-            return true
-        end
-        if(dificultad=="Media" and tamañoCodigo>4 and tamañoCodigo<=7) then
-            return true
-        end
-        if(dificultad=="Dificil" and tamañoCodigo>7 and tamañoCodigo<=10) then                
-            return true
-        end
-        return false
-    end
+
 
     def soloNumeros(nuevoCodigo)
         return nuevoCodigo.scan(/\D/).empty?
@@ -107,6 +113,7 @@ class Juego
         end
         return "tamaño incorrecto"
     end
+    
     def caracteresRepetidos(nuevoCodigo)
         nuevoCodigo.downcase.each_char.with_object('') { |c,s|
             c =~ /[0-9]/ && s.include?(c) ? (return false) : s << c }
@@ -123,7 +130,7 @@ class Juego
                     return true
                 else
                     @@intentosRealizados += 1
-                    if(@@intentosRealizados >= @@intento) then
+                    if(@@intentosRealizados >= @@intentosDisponibles) then
                         return false
                     else
                         @vacas = calcularCantidadVacas(intento, @vacas)

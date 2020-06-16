@@ -1,6 +1,3 @@
-<h2>La dificultad esta puesta en <%=@dificultad%></h2>
-<h2>Los intentos que puede hacer el jugador son <%=@intentos%></h2>
-<h2>Con un codigo numerico de <%=@tamañoCodigo%> digitos</h2> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +52,9 @@
 </head>
 <body>
     <center><div class="content-prev">
-    <h2>Los intentos que puede hacer el jugador son <%=@intentos%></h2>
-    <h2>Con un codigo numerico de <%=@tamañoCodigo%> digitos</h2> 
+    <h2> Dificultad elegida: <%=@dificultadActual%></h2>
+    <h2>Los intentos que puede hacer el jugador son: <%=@intentos%></h2>
+    <h2>Con un tamaño de codigo de: <%=@tamañoCodigo%> digitos</h2> 
     <form method='get' action='/'>
         <input type="submit" value='volver al inicio'>
     </form>

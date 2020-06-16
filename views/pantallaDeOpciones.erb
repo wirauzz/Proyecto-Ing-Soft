@@ -1,17 +1,3 @@
-<form method='post' action='formato'>
-    <h2>Dificultad: <%=@dificultad%></h2>
-    <h3>Cantidad de intentos</h3>
-    <br>
-    <input type='number' name='intentos'>    
-    <br>
-    <h3>Tamaño del codigo secreto</h3>
-    <br>
-    <input type='number' name='tamañoCodigo'>
-    <p><%=@respuesta%></p>
-    
-    <br>
-    <input type='submit' value='enviar'>
-</form>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,17 +53,21 @@
 <body>
     <center><h1> Opciones </h1><center>
     <center><div class="content-prev">
-    <form method='post' action='formato'>
-        <h3>Cantidad de intentos</h3> <input type='number' name='intentos' value="<%=@intentosActuales%>" min="1" max="20">    
-        <h3>Tamaño del codigo secreto</h3> <input type='number' name='tamanoCodigo' value="<%=@tamañoCodigo%>" min="1" max="10">
-        <br><br>
-
+    <form method='post' action='confirmarCambios'>
+        <label for="Dificultad">Choose a car:</label>
+        <select id="Dificultad" name="dificultades">
+            <option value="Facil">Facil</option>
+            <option value="Medio">Medio</option>
+            <option value="Dificil">Dificil</option>
+        </select>
         <input type='submit' value='enviar'>
         <br><br>
     </form>
+
     <form method='get' action='/'>
         <input type="submit" value='volver al inicio'>
     </form>
+    
     </div><center>
 </body>
 </html>

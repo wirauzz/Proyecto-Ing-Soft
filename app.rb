@@ -7,29 +7,23 @@ get '/' do
     erb:pantallaPrincipal
 end
 
-
 get '/codigoAleatorio' do
     @respuestac = @@juego.generarCodigoAleatorio()
     erb:pantallaPrincipal
 end
 
-post '/crearLimite' do
+post '/opciones' do
     @dificultad = params[:dificultad]
     @@juego.setDificultad(@dificultad)
-    erb:limite
+    erb:pantallaDeOpciones
 end
 
-post '/formato' do
-    @intentos = params[:intentos]
-    @tamañoCodigo = params[:tamañoCodigo]
-    @dificultad=@@juego.dificultad()
-    if(@@juego.verificarDificultad(@tamañoCodigo.to_i,@dificultad)) then
-        erb:condicion
-    else
-        
-        @respuesta = "El tamaño no es adecuado para la dificultad"
-        erb:limite
-    end
+post '/confirmarCambios' do
+    @intentos = @@juego.getIntento()
+    @tamañoCodigo = @@juego.getTamCodigo()
+    @dificultadActual= params[:dificultades]
+    @@juego.setDificultad(@dificultadActual)
+    erb:pantallaDeConfirmacionDeOpciones
 end
 
 post '/' do
