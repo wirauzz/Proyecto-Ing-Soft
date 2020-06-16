@@ -9,6 +9,7 @@ require './lib/puntuaciones'
 @@score = Puntuaciones.new
 
 get '/' do
+    @@juego.resetGame
     erb:pantallaDeBienvenida
 end
 
