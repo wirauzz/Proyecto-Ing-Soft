@@ -17,7 +17,7 @@ RSpec.describe Puntuaciones do
         lista = Puntuaciones.new
         puntuacion = Puntuacion.new
         puntuacionJose = Puntuacion.new
-        puntuacionPedro = Puntuacion.new
+        nuevaPuntuacionWil = Puntuacion.new
         puntuacion.setNombre("Wilson")
         puntuacion.setPuntuacion(3)
         puntuacionJose.setNombre("Jose")

@@ -41,10 +41,7 @@ class Puntuaciones
             @puntuaciones.push(nuevaPuntuacion)
             ordenarScores()            
             @puntuaciones.pop
-            for i in 0..9 do
-                puts @puntuaciones[i].getPuntuacion
-                puts @puntuaciones[i].getNombre
-            end
+            
         else
             @puntuaciones[resp]=Puntuacion.new
             @puntuaciones.push(nuevaPuntuacion)
