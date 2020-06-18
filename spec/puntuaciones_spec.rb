@@ -17,15 +17,17 @@ RSpec.describe Puntuaciones do
         lista = Puntuaciones.new
         puntuacion = Puntuacion.new
         puntuacionJose = Puntuacion.new
-
+        puntuacionPedro = Puntuacion.new
         puntuacion.setNombre("Wilson")
-        puntuacion.setPuntuacion(5)
-
+        puntuacion.setPuntuacion(3)
         puntuacionJose.setNombre("Jose")
-        puntuacionJose.setPuntuacion(10)
+        puntuacionJose.setPuntuacion(10)        
+        nuevaPuntuacionWil.setNombre("Wilson")
+        nuevaPuntuacionWil.setPuntuacion(1)
         lista.agregarScore(puntuacion)
         lista.agregarScore(puntuacionJose)
-        expect(lista.getPuntuacion(1).getPuntuacion()).to eq puntuacionJose.getPuntuacion()
+        lista.agregarScore(nuevaPuntuacionWil)
+        expect(lista.getPuntuacion(0)).to eq nuevaPuntuacionWil
     end
 
     it "Deberia devolverme el primer score 999 por defecto" do        

@@ -1,14 +1,14 @@
 
 class Jugador
     def initialize
-        @@Nombre = 'Invitado'
+        @Nombre = 'Invitado'
     end
 
     def getNombre()
-        return @@Nombre
+        return @Nombre
     end
 
     def setNombre(nuevoNombre)
-        @@Nombre = nuevoNombre
+        @Nombre = nuevoNombre
     end
 end

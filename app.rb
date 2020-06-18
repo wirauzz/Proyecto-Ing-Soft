@@ -4,10 +4,11 @@ require './lib/jugador'
 require './lib/puntuacion'
 require './lib/puntuaciones'
 
-@@juego = Juego.new
-@@jugador = Jugador.new
-@@score = Puntuaciones.new
-
+configure do
+    @@juego = Juego.new
+    @@jugador = Jugador.new
+    @@score = Puntuaciones.new    
+end
 get '/' do
     @@juego.resetGame
     erb:pantallaDeBienvenida
@@ -78,8 +79,6 @@ post '/juego' do
                 @nuevaPuntuacion.setPuntuacion(@intentosTotales)
                 @@score.agregarScore(@nuevaPuntuacion)
             end
-
-
             erb:pantallaGanaste
         end
     else

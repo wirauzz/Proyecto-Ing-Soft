@@ -2,56 +2,56 @@
 class Juego
 
     def initialize
-        @@intentosRealizados = 1
-        @@intentosDisponibles = 15
-        @@tamanoCodigo = 5
-        @@codigo = ''
-        @@dificultad = 'Medio'
+        @intentosRealizados = 1
+        @intentosDisponibles = 15
+        @tamanoCodigo = 5
+        @codigo = ''
+        @dificultad  = 'Medio'
     end
 
     def getIntento()
-        return @@intentosDisponibles
+        return @intentosDisponibles
     end
 
     def getDificultad()
-        return @@dificultad
+        return @dificultad 
     end
 
     def getIntentosRealizados()
-        return @@intentosRealizados
+        return @intentosRealizados
     end
 
     def getTamCodigo()
-        return @@tamanoCodigo
+        return@tamanoCodigo
     end 
     
     def getCodigo()
-        return @@codigo
+        return @codigo
     end
 
     def setIntento(intento)
-        @@intentosDisponibles = intento
+        @intentosDisponibles = intento
     end 
 
     def setDificultad(dificultad)
         case dificultad
             when 'Facil'
-                @@intentosDisponibles = 10
-                @@tamanoCodigo = 3
+                @intentosDisponibles = 10
+               @tamanoCodigo = 3
             when 'Medio'
-                @@intentosDisponibles = 15
-                @@tamanoCodigo = 5
+                @intentosDisponibles = 15
+               @tamanoCodigo = 5
             when 'Dificil'
-                @@intentosDisponibles = 20
-                @@tamanoCodigo = 8
+                @intentosDisponibles = 20
+               @tamanoCodigo = 8
         end
-        @@dificultad=dificultad
+        @dificultad =dificultad
     end
 
     def setCodigo(nuevoCodigo)
         res = ''
         if(codigoValido(nuevoCodigo) == true) then
-            @@codigo = nuevoCodigo
+            @codigo = nuevoCodigo
             return res +='codigo aceptado'
         else
             return res +='codigo no valido razon: ' + codigoValido(nuevoCodigo)
@@ -59,21 +59,21 @@ class Juego
     end
 
     def setTamCodigo(tamCodigo)
-        if(tamCodigo != @@tamanoCodigo) then
-            @@tamanoCodigo = tamCodigo
-            @@codigo.clear
+        if(tamCodigo !=@tamanoCodigo) then
+           @tamanoCodigo = tamCodigo
+            @codigo.clear
         end
     end 
 
     def generarCodigoAleatorio()
-        @@codigo = [*0..9].sample(@@tamanoCodigo).join('')
+        @codigo = [*0..9].sample(@tamanoCodigo).join('')
         return "codgio aleatorio genereado"
     end
 
 
     def resetGame()
-        @@intentosRealizados =1
-        @@codigo.clear
+        @intentosRealizados =1
+        @codigo.clear
     end
 
 
@@ -99,7 +99,7 @@ class Juego
 
 
     def verificarTamano(nuevoCodigo)
-        if(nuevoCodigo.length!=@@tamanoCodigo) then
+        if(nuevoCodigo.length!=@tamanoCodigo) then
             return false
         else
             return true
@@ -120,15 +120,15 @@ class Juego
 
     def intentarAdivinar(intento)
         if(soloNumeros(intento)) then
-            if(@@tamanoCodigo == intento.length) then
+            if(@tamanoCodigo == intento.length) then
                 @vacas=0
                 @toros=0
                 @toros = calcularCantidadDeToros(intento, @toros)
                 if(@toros == intento.length)
                     return true
                 else
-                    @@intentosRealizados += 1
-                    if(@@intentosRealizados >= @@intentosDisponibles) then
+                    @intentosRealizados += 1
+                    if(@intentosRealizados >= @intentosDisponibles) then
                         return false
                     else
                         @vacas = calcularCantidadVacas(intento, @vacas)
@@ -147,7 +147,7 @@ class Juego
     def calcularCantidadVacas(intento, vacas)
         for pos in 0...intento.length do
             for index in 0...intento.length do
-                if(intento[pos] == @@codigo[index] && pos!=index)
+                if(intento[pos] == @codigo[index] && pos!=index)
                     vacas +=1
                 end
             end
@@ -157,7 +157,7 @@ class Juego
 
     def calcularCantidadDeToros(intento, toros)
         for pos in 0...intento.length
-            if(intento[pos] == @@codigo[pos]) then
+            if(intento[pos] == @codigo[pos]) then
                 toros +=1
             end
         end
